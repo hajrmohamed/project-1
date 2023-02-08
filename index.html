@@ -9,13 +9,12 @@
     <link rel="stylesheet" href="styles/main.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container" style="background: url('images/f4.jpg')">
       <div class="title">
         <h1>Countries around the world</h1>
         <h2>Hangman Game</h2>
       </div>
 
-      <hr />
       <div class="guess"></div>
       <div class="middle">
         <div class="hangman-div">
@@ -34,9 +33,15 @@
         </div>
 
         <div class="letters"></div>
-        <audio id="correct" src=""></audio>
-        <audio id="wrong" src=""></audio>
+        <audio id="correct" src="sounds\correct.mp3"></audio>
+        <audio id="wrong" src="sounds\wrong1.mp3"></audio>
+        <audio id="Btn" src="sounds\click.mp3"></audio>
       </div>
+      <!-- <div class="messagePopup">
+        <div class="popupText"></div>
+        <div class="popupWord"></div>
+        <button class="reset">play again</button>
+      </div> -->
     </div>
   </body>
 </html>

@@ -19,35 +19,6 @@ function init() {
     "Philippines",
   ];
 
-  // const letters = [
-  //   "a",
-  //   "b",
-  //   "c",
-  //   "d",
-  //   "e",
-  //   "f",
-  //   "g",
-  //   "h",
-  //   "i",
-  //   "j",
-  //   "k",
-  //   "l",
-  //   "m",
-  //   "n",
-  //   "o",
-  //   "p",
-  //   "q",
-  //   "r",
-  //   "s",
-  //   "t",
-  //   "u",
-  //   "v",
-  //   "w",
-  //   "x",
-  //   "y",
-  //   "z",
-  // ];
-
   const letters = document.querySelector(".letters");
   for (let i = 65; i < 91; i++) {
     const btn = document.createElement("button");
@@ -67,16 +38,53 @@ function init() {
     const span = document.createElement("span");
 
     guess.appendChild(span);
+    console.log(span);
   });
 
-  const audio = new Audio("soundsclick.mp3");
-  const buttons = document.querySelectorAll(".letters");
+  // letters.addEventListener("mouseover", mouseOver);
+  function mouseOver() {
+    document.getElementById("Btn").play();
+  }
+  function endGame() {
+    const newDiv = document.createElement("div");
+    const lose = document.createTextNode(`You Lose :( `);
+    const line = document.createElement("br");
+    const answer = document.createTextNode(`The answer is ${word}`);
+    const newLine = document.createElement("br");
+    const btn = document.createElement("button");
+    const startAgain = document.createTextNode("Try Again");
+    newDiv.appendChild(lose);
+    newDiv.appendChild(line);
+    newDiv.appendChild(answer);
+    newDiv.appendChild(newLine);
+    newDiv.appendChild(btn);
+    btn.appendChild(startAgain);
+    btn.classList.add("refresh");
+    newDiv.classList.add("losePopup");
+    document.body.appendChild(newDiv);
+  }
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-      audio.play();
-    });
-  });
+  function startGame() {
+    const newDiv = document.createElement("div");
+    const lose = document.createTextNode(`You Win :) `);
+    const line = document.createElement("br");
+    const answer = document.createTextNode(`The answer is ${word}`);
+    const newLine = document.createElement("br");
+    const btn = document.createElement("button");
+    const startAgain = document.createTextNode("Play Again");
+    newDiv.appendChild(lose);
+    newDiv.appendChild(line);
+    newDiv.appendChild(answer);
+    newDiv.appendChild(newLine);
+    newDiv.appendChild(btn);
+    btn.appendChild(startAgain);
+    btn.classList.add("refresh");
+    newDiv.classList.add("winPopup");
+    document.body.appendChild(newDiv);
+  }
+  // btn.addEventListener("click", () => {
+  //   location.reload();
+  // });
 
   let wrongs = 0;
   const guessed = document.querySelectorAll(".guess span");
@@ -98,6 +106,7 @@ function init() {
             if (index === i) {
               span.innerHTML = picked;
             }
+            console.log(span);
           });
         }
       });
@@ -106,6 +115,14 @@ function init() {
         // add sound
         wrongs++;
         hangman.classList.add(`w${wrongs}`);
+
+        document.getElementById("wrong").play();
+        if (wrongs === 6) {
+          endGame();
+          letters.classList.add("end");
+        }
+      } else {
+        document.getElementById("correct").play();
       }
     }
   });
@@ -120,5 +137,10 @@ function init() {
   //     answer[i] = letter;
   //   }
   // }
+
+  // function resetGame(event) {
+  //   event.classList.remove("popup");
+  // }
+  // newDiv.addEventListener("click", resetGame);
 }
 window.addEventListener("DOMContentLoaded", init);
