@@ -87,7 +87,7 @@ function init() {
   // btn.addEventListener("click", () => {
   //   location.reload();
   // });
-
+  const array1 = [];
   let wrongs = 0;
   const guessed = document.querySelectorAll(".guess span");
   const letter = document.querySelector(".letter");
@@ -107,8 +107,13 @@ function init() {
           guessed.forEach((span, i) => {
             if (index === i) {
               span.innerHTML = picked;
+              array1.push(span.innerHTML);
             }
             console.log(span);
+            console.log(array1);
+            if (array1.length == array.length) {
+              winPopup();
+            }
           });
         }
       });
@@ -128,6 +133,12 @@ function init() {
       }
     }
   });
+  // const array1 = [];
+  // function spans() {
+  //   $("span").each(function () {
+  //     array1.push(this.innerHTML);
+  //   });
+  // }
 
   // const answer = [];
   // for (let i = 0; i < word.length; i++) {
