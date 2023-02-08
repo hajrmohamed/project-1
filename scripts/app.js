@@ -27,15 +27,15 @@ function init() {
     letters.append(btn);
   }
 
-  const word = words[Math.floor(Math.random() * words.length)];
+  let word = words[Math.floor(Math.random() * words.length)];
   // console.log(word);
 
-  const guess = document.querySelector(".guess");
-  const array = Array.from(word.toLowerCase());
+  let guess = document.querySelector(".guess");
+  let array = Array.from(word.toLowerCase());
   // console.log(array);
 
   array.forEach((x) => {
-    const span = document.createElement("span");
+    let span = document.createElement("span");
 
     guess.appendChild(span);
     console.log(span);
@@ -44,24 +44,22 @@ function init() {
   //  play sound on hover
   letters.addEventListener("mouseover", mouseOver);
   function mouseOver() {
-    document.getElementById("Btn").play();
+    document.getElementById("playBtn").play();
   }
 
+  const resetButton = document.querySelector(".reset");
   function losePopup() {
     const newDiv = document.createElement("div");
     const lose = document.createTextNode(`You Lose :( `);
     const line = document.createElement("br");
     const answer = document.createTextNode(`The answer is ${word}`);
     const newLine = document.createElement("br");
-    const btn = document.createElement("button");
-    const startAgain = document.createTextNode("Try Again");
+
     newDiv.appendChild(lose);
     newDiv.appendChild(line);
     newDiv.appendChild(answer);
     newDiv.appendChild(newLine);
-    newDiv.appendChild(btn);
-    btn.appendChild(startAgain);
-    btn.classList.add("refresh");
+    newDiv.appendChild(resetButton);
     newDiv.classList.add("popup");
     document.body.appendChild(newDiv);
   }
@@ -72,25 +70,20 @@ function init() {
     const line = document.createElement("br");
     const answer = document.createTextNode(`The answer is ${word}`);
     const newLine = document.createElement("br");
-    const btn = document.createElement("button");
-    const startAgain = document.createTextNode("Play Again");
+
     newDiv.appendChild(lose);
     newDiv.appendChild(line);
     newDiv.appendChild(answer);
     newDiv.appendChild(newLine);
-    newDiv.appendChild(btn);
-    btn.appendChild(startAgain);
-    btn.classList.add("refresh");
+    newDiv.appendChild(resetButton);
     newDiv.classList.add("popup");
     document.body.appendChild(newDiv);
   }
-  // btn.addEventListener("click", () => {
-  //   location.reload();
-  // });
+
   const array1 = [];
   let wrongs = 0;
   const guessed = document.querySelectorAll(".guess span");
-  const letter = document.querySelector(".letter");
+  const letter = document.querySelectorAll(".letter");
   document.addEventListener("click", (x) => {
     let status = false;
     if (x.target.classList == "letter") {
@@ -104,13 +97,14 @@ function init() {
       array.forEach((wordLetter, index) => {
         if (picked == wordLetter) {
           status = true;
+
           guessed.forEach((span, i) => {
             if (index === i) {
               span.innerHTML = picked;
               array1.push(span.innerHTML);
             }
-            console.log(span);
-            console.log(array1);
+            // console.log(span);
+            // console.log(array1);
             if (array1.length == array.length) {
               winPopup();
             }
@@ -126,19 +120,36 @@ function init() {
         document.getElementById("wrong").play();
         if (wrongs === 6) {
           losePopup();
-          letters.classList.add("end");
+          letters.classList.add("finish");
         }
       } else {
         document.getElementById("correct").play();
       }
     }
   });
-  // const array1 = [];
-  // function spans() {
-  //   $("span").each(function () {
-  //     array1.push(this.innerHTML);
-  //   });
-  // }
+
+  function reset() {
+    console.log("reset ppp");
+    document.querySelector(".head").style.display = "none";
+    document.querySelector(".body").style.display = "none";
+    document.querySelector(".right-arm").style.display = "none";
+    document.querySelector(".left-arm").style.display = "none";
+    document.querySelector(".right-leg").style.display = "none";
+    document.querySelector(".left-leg").style.display = "none";
+    document.querySelector(".popup").style.display = "none";
+    letter.forEach((btn) => {
+      btn.classList.remove("clicked");
+    });
+    letters.classList.remove("finish");
+    // guessed.innerHTML = "";
+    guessed.forEach((x) => {
+      x.innerHTML = "";
+    });
+    randomWord();
+  }
+
+  resetButton.addEventListener("click", reset);
+  resetButton.addEventListener("click", randomWord);
 
   // const answer = [];
   // for (let i = 0; i < word.length; i++) {
@@ -150,10 +161,5 @@ function init() {
   //     answer[i] = letter;
   //   }
   // }
-
-  // function resetGame(event) {
-  //   event.classList.remove("popup");
-  // }
-  // newDiv.addEventListener("click", resetGame);
 }
 window.addEventListener("DOMContentLoaded", init);

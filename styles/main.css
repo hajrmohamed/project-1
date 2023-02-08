@@ -224,7 +224,7 @@ hr {
   display: block;
 }
 
-.letters.end {
+.letters.finish {
   pointer-events: none;
 }
 
@@ -240,7 +240,7 @@ hr {
   left: 30%;
 }
 
-.refresh {
+.reset {
   margin-top: 25px;
   padding: 9px;
   border-radius: 5%;
@@ -249,6 +249,6 @@ hr {
   background-color: white;
 }
 
-.refresh:hover {
+.reset:hover {
   transform: scale(0.97);
 }
