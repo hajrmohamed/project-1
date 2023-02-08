@@ -228,8 +228,7 @@ hr {
   pointer-events: none;
 }
 
-.losePopup,
-.winPopup {
+.popup {
   background-color: rgba(241, 241, 241, 0.966);
   width: 600px;
   padding: 40px;

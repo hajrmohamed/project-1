@@ -41,11 +41,13 @@ function init() {
     console.log(span);
   });
 
-  // letters.addEventListener("mouseover", mouseOver);
+  //  play sound on hover
+  letters.addEventListener("mouseover", mouseOver);
   function mouseOver() {
     document.getElementById("Btn").play();
   }
-  function endGame() {
+
+  function losePopup() {
     const newDiv = document.createElement("div");
     const lose = document.createTextNode(`You Lose :( `);
     const line = document.createElement("br");
@@ -60,11 +62,11 @@ function init() {
     newDiv.appendChild(btn);
     btn.appendChild(startAgain);
     btn.classList.add("refresh");
-    newDiv.classList.add("losePopup");
+    newDiv.classList.add("popup");
     document.body.appendChild(newDiv);
   }
 
-  function startGame() {
+  function winPopup() {
     const newDiv = document.createElement("div");
     const lose = document.createTextNode(`You Win :) `);
     const line = document.createElement("br");
@@ -79,7 +81,7 @@ function init() {
     newDiv.appendChild(btn);
     btn.appendChild(startAgain);
     btn.classList.add("refresh");
-    newDiv.classList.add("winPopup");
+    newDiv.classList.add("popup");
     document.body.appendChild(newDiv);
   }
   // btn.addEventListener("click", () => {
@@ -118,7 +120,7 @@ function init() {
 
         document.getElementById("wrong").play();
         if (wrongs === 6) {
-          endGame();
+          losePopup();
           letters.classList.add("end");
         }
       } else {
