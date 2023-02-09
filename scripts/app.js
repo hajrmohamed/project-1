@@ -1,24 +1,31 @@
 function init() {
   let hangman = document.querySelector(".hangman-div");
+  const chooseWord = document.querySelectorAll(".random");
   const words = [
     "Afghanistan",
     "Argentina",
     "Azerbaijan",
     "Australia",
     "Bahrain",
+    "China",
     "Egypt",
     "India",
     "Germany",
     "Georgia",
     "Switzerland",
+    "Qatar",
+    "kuwait",
     "Malaysia",
     "Morocco",
     "Norway",
+    "Malaysia",
     "Pakistan",
     "Palestine",
     "Philippines",
+    "Thailand",
   ];
 
+  // create buttons
   const letters = document.querySelector(".letters");
   for (let i = 65; i < 91; i++) {
     const btn = document.createElement("button");
@@ -27,6 +34,7 @@ function init() {
     letters.append(btn);
   }
 
+  // function randomWord() {
   let word = words[Math.floor(Math.random() * words.length)];
   // console.log(word);
 
@@ -34,23 +42,26 @@ function init() {
   let array = Array.from(word.toLowerCase());
   // console.log(array);
 
+  // create spans
   array.forEach((x) => {
     let span = document.createElement("span");
 
     guess.appendChild(span);
     console.log(span);
   });
-
+  // }
+  // chooseWord.addEventListener("click", randomWord);
   //  play sound on hover
-  letters.addEventListener("mouseover", mouseOver);
+
   function mouseOver() {
     document.getElementById("playBtn").play();
   }
 
+  letters.addEventListener("mouseover", mouseOver);
   const resetButton = document.querySelector(".reset");
   function losePopup() {
     const newDiv = document.createElement("div");
-    const lose = document.createTextNode(`You Lose :( `);
+    const lose = document.createTextNode(`You Lost :( `);
     const line = document.createElement("br");
     const answer = document.createTextNode(`The answer is ${word}`);
     const newLine = document.createElement("br");
@@ -141,15 +152,12 @@ function init() {
       btn.classList.remove("clicked");
     });
     letters.classList.remove("finish");
-    // guessed.innerHTML = "";
+
     guessed.forEach((x) => {
       x.innerHTML = "";
     });
-    randomWord();
   }
-
   resetButton.addEventListener("click", reset);
-  resetButton.addEventListener("click", randomWord);
 
   // const answer = [];
   // for (let i = 0; i < word.length; i++) {
@@ -162,4 +170,5 @@ function init() {
   //   }
   // }
 }
+
 window.addEventListener("DOMContentLoaded", init);

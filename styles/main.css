@@ -32,7 +32,7 @@ h1 {
   color: rgb(192, 10, 10);
 }
 h2 {
-  color: rgb(2, 2, 59);
+  color: rgb(7, 77, 13);
 }
 
 .middle {
@@ -43,15 +43,16 @@ hr {
   border: 1px solid rgb(197, 197, 197);
 }
 .hangman-div {
-  flex: 1;
+  flex: 0.5;
   height: 500px;
+  padding-left: 30px;
 }
 .hangman {
   width: 95px;
   height: 250px;
   position: relative;
   margin: auto;
-  border-bottom: 5px solid black;
+  border-bottom: 5px solid rgb(2, 2, 59);
   left: -130px;
   bottom: 50px;
 }
@@ -59,7 +60,7 @@ hr {
   position: absolute;
   width: 4px;
   height: 100%;
-  background-color: black;
+  background-color: rgb(2, 2, 59);
   left: 20%;
   content: "";
   /* margin-right: 2px; */
@@ -69,7 +70,7 @@ hr {
   position: absolute;
   width: 150px;
   height: 4px;
-  background-color: black;
+  background-color: rgb(2, 2, 59);
   left: 20%;
   content: "";
 }
@@ -78,7 +79,7 @@ hr {
   position: absolute;
   width: 4px;
   height: 28px;
-  background-color: black;
+  background-color: rgb(2, 2, 59);
   left: 100%;
   content: "";
 }
@@ -90,7 +91,7 @@ hr {
   border-radius: 50%;
   right: -101px;
   top: 28px;
-  border: 3px solid rgb(192, 10, 10);
+  border: 3px solid rgb(209, 23, 23);
   display: none;
 }
 
@@ -98,7 +99,7 @@ hr {
   position: absolute;
   width: 3px;
   height: 90px;
-  background-color: rgb(192, 10, 10);
+  background-color: rgb(209, 23, 23);
   left: 170px;
   top: 75px;
   display: none;
@@ -108,7 +109,7 @@ hr {
   position: absolute;
   content: "";
   transform: rotate(140deg);
-  background-color: rgb(192, 10, 10);
+  background-color: rgb(209, 23, 23);
   width: 50px;
   height: 3px;
   left: 127px;
@@ -119,7 +120,7 @@ hr {
   position: absolute;
   content: "";
   transform: rotate(-140deg);
-  background-color: rgb(192, 10, 10);
+  background-color: rgb(209, 23, 23);
 
   width: 50px;
   height: 3px;
@@ -132,7 +133,7 @@ hr {
   position: absolute;
   content: "";
   transform: rotate(140deg);
-  background-color: rgb(192, 10, 10);
+  background-color: rgb(209, 23, 23);
   width: 45px;
   height: 3px;
   left: 131px;
@@ -143,7 +144,7 @@ hr {
   position: absolute;
   content: "";
   transform: rotate(-140deg);
-  background-color: rgb(192, 10, 10);
+  background-color: rgb(209, 23, 23);
   width: 45px;
   height: 3px;
   left: 166px;
@@ -159,8 +160,8 @@ hr {
 .letter {
   margin-left: 10px;
   margin-bottom: 10px;
-  width: 55px;
-  height: 55px;
+  width: 52px;
+  height: 52px;
   display: inline-block;
   border: none;
   /* background-color: rgb(96, 126, 36); */
@@ -168,7 +169,7 @@ hr {
   color: white;
   font-size: 20px;
   cursor: pointer;
-  line-height: 25px;
+  line-height: 20px;
   font-weight: bold;
 }
 .clicked {
@@ -183,6 +184,12 @@ hr {
   color: rgb(58, 77, 20); */
   background-color: rgb(235, 206, 126);
   color: white;
+}
+.clicked:hover {
+  cursor: not-allowed;
+  background-color: rgb(199, 199, 199);
+  color: rgb(173, 173, 173);
+  transform: none;
 }
 
 .guess {
@@ -229,7 +236,7 @@ hr {
 }
 
 .popup {
-  background-color: rgba(241, 241, 241, 0.966);
+  background-color: rgba(70, 127, 153, 0.979);
   width: 600px;
   padding: 40px;
   text-align: center;
@@ -238,15 +245,18 @@ hr {
   position: fixed;
   top: 40%;
   left: 30%;
+  color: white;
 }
 
 .reset {
   margin-top: 25px;
-  padding: 9px;
-  border-radius: 5%;
+  padding: 13px;
+
   cursor: pointer;
   font-weight: bold;
+  border: none;
   background-color: white;
+  color: rgba(8, 72, 102, 0.952);
 }
 
 .reset:hover {
