@@ -27,4 +27,5 @@ Contributions to this project are welcome. If you have any suggestions or ideas 
 
 ## Contact
 If you have any questions or concerns about the game, you can reach out to the developer at hajr.m7md@gmail.com.
+
 Thank you for playing!
