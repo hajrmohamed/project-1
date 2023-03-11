@@ -6,7 +6,7 @@ The rules of the game are simple. The computer will randomly select a country, a
 
 
 ## Installation
-To play the game, simply download the repository and open the index.html file in your web browser. Alternatively, you can click on this link to play the game directly.
+To play the game you can click on this https://hajrmohamed.github.io/project-1/ to play the game directly.
 
 ## Usage
 Once you open the game, you will be presented with a blank space for the country name, and a keyboard to make your guesses. Click on a letter to make a guess. If the letter is in the country name, it will be revealed. If not, a part of the hangman will be drawn.
