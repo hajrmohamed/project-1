@@ -1,6 +1,9 @@
 # Hangman Game: Countries Around the World
 Welcome to the Hangman game! This is a fun and educational game that tests your knowledge of countries around the world. This game is built using HTML, CSS, and JavaScript and can be played on any web browser.
 
+
+![image](https://user-images.githubusercontent.com/102368151/224512755-f0c2784a-2c20-45e9-b915-0e05c3d51aba.png)
+
 ## How to Play
 The rules of the game are simple. The computer will randomly select a country, and you have to guess the name of the country letter by letter. For every incorrect guess, a part of the hangman will be drawn. You have 6 incorrect guesses before the game is over.
 
